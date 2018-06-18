@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.satelsrl.privacyback.dao.CategoryDAO;
+import it.satelsrl.privacyback.dao.CustomerDAO;
 import it.satelsrl.privacyback.dto.Category;
 
 /**
@@ -22,6 +23,9 @@ public class PageController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
+	@Autowired
+	private CustomerDAO customerDAO;
+
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
 		ModelAndView mv = new ModelAndView ("page");

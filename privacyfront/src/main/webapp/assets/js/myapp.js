@@ -12,6 +12,7 @@ $(function() {
 		$('#listCustomers').addClass('active');
 		break;
 	default:
+		if(menu == "Home") break;
 		$('#listCustomers').addClass('active');
 		$('#a_' + menu).addClass('active');
 		break;
