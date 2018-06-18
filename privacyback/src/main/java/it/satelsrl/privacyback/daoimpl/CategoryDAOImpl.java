@@ -32,7 +32,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 */
 	@Override
 	public List<Category> list() {
-		String selectActiveCategory = "FROM Category WHERE active = :active";
+		String selectActiveCategory = "FROM category WHERE active = :active";
 
 		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
 

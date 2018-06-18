@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import it.satelsrl.privacyback.dao.CustomerDAO;
 import it.satelsrl.privacyback.dto.Customer;
 
 /**
@@ -18,7 +19,7 @@ import it.satelsrl.privacyback.dto.Customer;
  */
 @Repository("customerDAO")
 @Transactional
-public class CustomerDAOImpl {
+public class CustomerDAOImpl implements CustomerDAO  {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -40,7 +41,7 @@ public class CustomerDAOImpl {
 	 * LIST
 	 */
 	public List<Customer> list() {
-		return sessionFactory.getCurrentSession().createQuery("FROM Customer", Customer.class).getResultList();
+		return sessionFactory.getCurrentSession().createQuery("FROM customer", Customer.class).getResultList();
 	}
 	/*
 	 * INSERT
@@ -83,7 +84,7 @@ public class CustomerDAOImpl {
 		return false;
 	}
 	public List<Customer> listActiveCustomers() {
-		String selectActiveCustomers = "FROM Customer WHERE active= :active";
+		String selectActiveCustomers = "FROM customer WHERE active= :active";
 		return sessionFactory
 				.getCurrentSession()
 				.createQuery(selectActiveCustomers, Customer.class)
@@ -92,7 +93,7 @@ public class CustomerDAOImpl {
 	}
 	
 	public List<Customer> listActiveCustomersByCategory(int categoryId) {
-		String selectActiveCustomersByCategory = "FROM Customer WHERE active= :active AND categoryId = :categoryId";
+		String selectActiveCustomersByCategory = "FROM customer WHERE active= :active AND categoryId = :categoryId";
 		return sessionFactory
 				.getCurrentSession()
 				.createQuery(selectActiveCustomersByCategory, Customer.class)
@@ -104,7 +105,7 @@ public class CustomerDAOImpl {
 	public List<Customer> getLatestActiveCustomers(int count) {
 		return sessionFactory
 				.getCurrentSession()
-				.createQuery("FROM Customer WHERE active = :active ORDER BY id", Customer.class)
+				.createQuery("FROM customer WHERE active = :active ORDER BY id", Customer.class)
 				.setParameter("active", true)
 				.setFirstResult(0)
 				.setMaxResults(count)

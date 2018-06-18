@@ -3,18 +3,22 @@
  */
 package it.satelsrl.privacyback.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Maurizio Carlotti
  *
  */
 @Entity
-public class Customer {
+@Table(name="customer")
+public class Customer implements Serializable {
 	// private fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
