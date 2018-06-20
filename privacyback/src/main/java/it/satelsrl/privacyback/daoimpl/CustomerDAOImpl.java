@@ -41,12 +41,14 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * LIST
 	 */
+	@Override
 	public List<Customer> list() {
 		return sessionFactory.getCurrentSession().createQuery("FROM customer", Customer.class).getResultList();
 	}
 	/*
 	 * INSERT
 	 */
+	@Override
 	public boolean add(Customer customer) {
 		try {
 			// aggiungi il customer al database
@@ -61,6 +63,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * UPDATE
 	 */
+	@Override
 	public boolean update(Customer customer) {
 		try {
 			// aggiungi il customer al database
@@ -74,6 +77,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * DELETE
 	 */
+	@Override
 	public boolean delete(Customer customer) {
 		try {
 			// aggiungi il customer al database
@@ -84,6 +88,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 		}
 		return false;
 	}
+	@Override
 	public List<Customer> listActiveCustomers() {
 		String selectActiveCustomers = "FROM customer WHERE active = :active";
 		return sessionFactory
@@ -92,7 +97,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 				.setParameter("active", true)
 				.getResultList();
 	}
-	
+	@Override
 	public List<Customer> listActiveCustomersByCategory(int categoryId) {
 		String selectActiveCustomersByCategory = "FROM customer WHERE active = :active AND categoryId = :categoryId";
 		return sessionFactory
@@ -103,6 +108,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 				.getResultList();
 	}
 	
+	@Override
 	public List<Customer> getLatestActiveCustomers(int count) {
 		return sessionFactory
 				.getCurrentSession()

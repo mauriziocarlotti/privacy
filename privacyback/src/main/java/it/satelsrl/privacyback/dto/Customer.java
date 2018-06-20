@@ -3,6 +3,8 @@
  */
 package it.satelsrl.privacyback.dto;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,33 +12,19 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Maurizio Carlotti
  *
  */
+@Component
 @Entity
 @Table(name = "customer")
-public class Customer {
-	// private fields
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
-	private String first_name;
-	private String last_name;
-	@Column(name = "is_active")
-	private boolean active = true;
-	private String description;
-	private String email;
-	private String contact_number;
-	@Column(name = "category_id")
-	private int categoryId;
-	@Column(name = "supplier_id")
-	private int supplierId;
+public class Customer  implements Serializable {
+
+	private static final long serialVersionUID = 1L;
 	
-	// default constructor
-//	public Customer() {
-//		this.last_name;
-//	}
 	/**
 	 * @return the id
 	 */
@@ -146,4 +134,24 @@ public class Customer {
 		this.supplierId = supplierId;
 	}
 
+	// private fields
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	private String first_name;
+	private String last_name;
+	@Column(name = "is_active")
+	private boolean active = true;
+	private String description;
+	private String email;
+	private String contact_number;
+	@Column(name = "category_id")
+	private int categoryId;
+	@Column(name = "supplier_id")
+	private int supplierId;
+	
+	// default constructor
+//	public Customer() {
+//		this.last_name;
+//	}
 }
