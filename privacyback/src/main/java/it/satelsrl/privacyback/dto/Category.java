@@ -17,7 +17,7 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="category")
+@Table(name = "category")
 public class Category implements Serializable {
 	/* (non-Javadoc)
 	 * @see java.lang.Object#toString()

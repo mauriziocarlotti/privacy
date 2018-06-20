@@ -19,7 +19,7 @@ import it.satelsrl.privacyback.dto.Customer;
  */
 @Repository("customerDAO")
 @Transactional
-public class CustomerDAOImpl implements CustomerDAO  {
+public class CustomerDAOImpl implements CustomerDAO {
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -27,10 +27,11 @@ public class CustomerDAOImpl implements CustomerDAO  {
 	/*
 	 * SINGLE
 	 */
+	@Override
 	public Customer get(int customerId) {
 		try {
 			// leggi il customer dal database
-			sessionFactory.getCurrentSession().get(Customer.class,Integer.valueOf(customerId));
+			return sessionFactory.getCurrentSession().get(Customer.class,Integer.valueOf(customerId));
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
@@ -84,7 +85,7 @@ public class CustomerDAOImpl implements CustomerDAO  {
 		return false;
 	}
 	public List<Customer> listActiveCustomers() {
-		String selectActiveCustomers = "FROM customer WHERE active= :active";
+		String selectActiveCustomers = "FROM customer WHERE active = :active";
 		return sessionFactory
 				.getCurrentSession()
 				.createQuery(selectActiveCustomers, Customer.class)
@@ -93,7 +94,7 @@ public class CustomerDAOImpl implements CustomerDAO  {
 	}
 	
 	public List<Customer> listActiveCustomersByCategory(int categoryId) {
-		String selectActiveCustomersByCategory = "FROM customer WHERE active= :active AND categoryId = :categoryId";
+		String selectActiveCustomersByCategory = "FROM customer WHERE active = :active AND categoryId = :categoryId";
 		return sessionFactory
 				.getCurrentSession()
 				.createQuery(selectActiveCustomersByCategory, Customer.class)

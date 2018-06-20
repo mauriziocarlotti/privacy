@@ -3,8 +3,6 @@
  */
 package it.satelsrl.privacyback.dto;
 
-import java.io.Serializable;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -17,8 +15,8 @@ import javax.persistence.Table;
  *
  */
 @Entity
-@Table(name="customer")
-public class Customer implements Serializable {
+@Table(name = "customer")
+public class Customer {
 	// private fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +24,7 @@ public class Customer implements Serializable {
 	private String first_name;
 	private String last_name;
 	@Column(name = "is_active")
-	private boolean active;
+	private boolean active = true;
 	private String description;
 	private String email;
 	private String contact_number;
