@@ -82,7 +82,8 @@ public class CustomerDAOImpl implements CustomerDAO {
 		try {
 			// aggiungi il customer al database
 			customer.setActive(false);
-			return this.update(customer);
+			sessionFactory.getCurrentSession().update(customer);
+			return true;
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}

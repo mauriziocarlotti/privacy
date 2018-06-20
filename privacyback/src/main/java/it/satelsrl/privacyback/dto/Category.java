@@ -12,12 +12,15 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import org.springframework.stereotype.Component;
+
 /**
  * @author Maurizio Carlotti
  *
  */
 @Entity
 @Table(name = "category")
+@Component
 public class Category implements Serializable {
 	/**
 	 * 

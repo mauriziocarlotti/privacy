@@ -5,13 +5,11 @@ package it.satelsrl.privacyfront.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import it.satelsrl.privacyback.dao.CategoryDAO;
-//import it.satelsrl.privacyback.dao.CustomerDAO;
-import it.satelsrl.privacyback.dto.Category;
+import it.satelsrl.privacyback.dao.CustomerDAO;
 
 /**
  * @author Maurizio Carlotti
@@ -23,8 +21,8 @@ public class PageController {
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
-//	@Autowired
-//	private CustomerDAO customerDAO;
+	@Autowired
+	private CustomerDAO customerDAO;
 
 	@RequestMapping(value = {"/", "/home", "/index"})
 	public ModelAndView index() {
@@ -63,22 +61,22 @@ public class PageController {
 //		return mv;
 //		
 //	}
-	@RequestMapping(value= "/test/{greeting}")
-	public ModelAndView test(@PathVariable("greeting")String greeting) {
-		if (greeting == null) {
-			greeting = "Ciao a tutti";
-		}
-		ModelAndView mv = new ModelAndView ("page");
-		mv.addObject("greeting",greeting);
-		
-		return mv;
-		
-	}
+//	@RequestMapping(value= "/test/{greeting}")
+//	public ModelAndView test(@PathVariable("greeting")String greeting) {
+//		if (greeting == null) {
+//			greeting = "Ciao a tutti";
+//		}
+//		ModelAndView mv = new ModelAndView ("page");
+//		mv.addObject("greeting",greeting);
+//		
+//		return mv;
+//		
+//	}
 	/*
 	 * Metodi per caricare tutti i customer
 	 * 
 	 */
-	
+/*	
 	@RequestMapping(value = "/show/all/customers")
 	public ModelAndView showAllCustomers() {
 		ModelAndView mv = new ModelAndView ("page");
@@ -91,12 +89,12 @@ public class PageController {
 		mv.addObject("userClickAllCustomers",true);
 		return mv;
 	}
-	
+*/	
 	/*
 	 * Metodi per caricare tutte le categorie
 	 * 
 	 */
-	
+/*	
 	@RequestMapping(value = "/show/category/{id}/customers")
 	public ModelAndView showCategoryCustomers(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView ("page");
@@ -116,5 +114,5 @@ public class PageController {
 		mv.addObject("userClickCategoryCustomers",true);
 		return mv;
 	}
-	
+*/	
 }
