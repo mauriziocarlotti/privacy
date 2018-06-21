@@ -3,10 +3,13 @@
  */
 package it.satelsrl.privacyback.daoimpl;
 
-import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import it.satelsrl.privacyback.dao.CategoryDAO;
 import it.satelsrl.privacyback.dto.Category;
@@ -16,60 +19,81 @@ import it.satelsrl.privacyback.dto.Category;
  *
  */
 @Repository("categoryDAO")
+@Transactional
 public class CategoryDAOImpl implements CategoryDAO {
 
-	private static List<Category> categories = new ArrayList<Category>();
-
-	static {
-		Category category = new Category();
-		// prima riga
-		category.setId(1);
-		category.setName("Completa");
-		category.setDescription("Anagrafica completa");
-		category.setImageURL("");
-		category.setActive(true);
-
-		categories.add(category);
-
-		category = new Category();
-		// seconda riga
-		category.setId(2);
-		category.setName("Solo nominativo");
-		category.setDescription("Solo nominativo del ");
-		category.setImageURL("");
-		category.setActive(true);
-
-		categories.add(category);
-
-		category = new Category();
-		// terza riga
-		category.setId(3);
-		category.setName("Normativa web");
-		category.setDescription("Vengono richiesti i dati da web");
-		category.setImageURL("");
-		category.setActive(true);
-
-		categories.add(category);
-	}
-
+	@Autowired
+	private SessionFactory sessionFactory;
+	
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see it.satelsrl.privacyback.dao.CategoryDAO#list()
 	 */
 
+	@Override
 	public List<Category> list() {
-		// TODO Auto-generated method stub
-		return categories;
+		String selectActiveCategory = "FROM Category WHERE active = :active";
+
+		Query query = sessionFactory.getCurrentSession().createQuery(selectActiveCategory);
+
+		query.setParameter("active", true);
+		return query.getResultList();
 	}
 
+	/*
+	 * Getting single category based on id
+	 */
 	
+	@Override
 	public Category get(int id) {
 
-		for(Category category : categories) {
-			if(category.getId() == id) return category;
+		return sessionFactory.getCurrentSession().get(Category.class, Integer.valueOf(id));
+	}
+	/*
+	 * (non-Javadoc) Add category
+	 */
+	@Override
+	public boolean add(Category category) {
+		try {
+			// add la categoria al database
+			sessionFactory.getCurrentSession().persist(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
 		}
-		return null;
 	}
 
+	/*
+	 * (non-Javadoc) Updating single category
+	 */
+	@Override
+	public boolean update(Category category) {
+		try {
+			// update la categoria al database
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+
+	/*
+	 * (non-Javadoc) Delete single category
+	 */
+	@Override
+	public boolean delete(Category category) {
+		category.setActive(false);
+		try {
+			// delete la categoria dal database
+			sessionFactory.getCurrentSession().update(category);
+			return true;
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
+	}
+	
 }
