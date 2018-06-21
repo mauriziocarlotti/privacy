@@ -12,9 +12,9 @@
    ">
 
 	<context:component-scan
-		base-package="it.satelsrl.privacyfront.controller" />
+		base-package="it.satelsrl.privacyfront." />
 	<context:component-scan
-		base-package="it.satelsrl.privacyback.daoimpl" />
+		base-package="it.satelsrl.privacyback." />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">

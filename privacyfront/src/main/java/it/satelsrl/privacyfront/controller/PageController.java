@@ -92,7 +92,7 @@ public class PageController {
 	 * Metodi per caricare tutte le categorie
 	 * 
 	 */
-	
+/*	
 	@RequestMapping(value = "/show/category/{id}/customers")
 	public ModelAndView showCategoryCustomers(@PathVariable("id") int id) {
 		ModelAndView mv = new ModelAndView ("page");
@@ -112,5 +112,5 @@ public class PageController {
 		mv.addObject("userClickCategoryCustomers",true);
 		return mv;
 	}
-	
+*/	
 }
