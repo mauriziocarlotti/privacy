@@ -3,6 +3,8 @@
  */
 package it.satelsrl.privacyfront.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +24,8 @@ import it.satelsrl.privacyfront.exception.CustomerNotFoundException;
 @Controller
 public class PageController {
 
+//	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	
 	@Autowired
 	private CategoryDAO categoryDAO;
 	
@@ -33,6 +37,9 @@ public class PageController {
 		ModelAndView mv = new ModelAndView("page");
 		mv.addObject("greeting", "Benvenuto to spring");
 		mv.addObject("title", "Home");
+		
+//		logger.info("PageController metodo index");
+		
 		// passing la lista delle categorie
 		mv.addObject("categories", categoryDAO.list());
 
