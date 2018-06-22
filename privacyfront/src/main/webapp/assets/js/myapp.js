@@ -20,25 +20,52 @@ $(function() {
 	
 	// code for jquery
 	// create a dataset
-	var customers = [
-		['1','abc'],
-		['2','due'],
-		['3','tre'],
-		['4','quattro'],
-		['5','cinque'],
-		['6','sei']
-		
-	];
 	var $table = $('#customerListTable');
-	
+
+var jsonUrl = '';
+if(window.categoryId == '') {
+	jsonUrl = window.contextRoot + '/json/data/all/customers';
+} else {
+	jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/customers';
+}
+
 	// execute
 	if($table.length) {
-		 console.log('Interno tabella');
+		// console.log('Interno tabella');
 		$table.DataTable( {
 			
 			lengthMenu: [[3,5,10,-1],['3 Records','5 Records','10 Records', 'All records']],
 			pageLength: 5,
-			data: customers
+			ajax: {
+				url: jsonUrl,
+				dataSrc: ''
+			},
+			columns: [
+				{
+					data: 'first_name'
+				},
+				{
+					data: 'last_name'
+				},
+				{
+					data: 'email',
+					mRender: function(data, type, row) {
+						return '&#8377; ' + data
+					}
+				},
+				{
+					data: 'description'
+				},
+				{
+					data: 'id',
+					bSortable: false,
+					mRender: function(data, type, row) {
+						var str = '';
+						str +='<a href="'+window.contextRoot + '/show/'+data+'/customer" class="btn btn-primary"><span class="glyphicon glyphicon-eye-open"></span></a> &#160;';
+						return str;
+					}
+				},
+			]
 			
 		});
 	}

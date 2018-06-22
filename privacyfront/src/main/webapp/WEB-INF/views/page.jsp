@@ -24,12 +24,18 @@
 
 <script>
 	window.menu = '${title}';
+	window.contextRoot = '${contextRoot}'
 </script>
 <!-- Bootstrap Core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="${css}/dataTables.bootstrap.css" rel="stylesheet">
+
+<!-- Custom CSS -->
 
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -65,6 +71,12 @@
 				test="${userClickAllCustomers == true or userClickCategoryCustomers == true}">
 				<%@include file="listCustomers.jsp"%>
 			</c:if>
+
+			<c:if
+				test="${userClickShowCustomer == true}">
+				<%@include file="singleCustomer.jsp"%>
+			</c:if>
+
 		</div>
 		<!-- /.container -->
 
@@ -79,6 +91,10 @@
 
 		<!-- DataTable plugins -->
 		<script src="${js}/jquery.dataTables.js"></script>
+		
+		<!-- DataTable Bootstrap plugins -->
+		<script src="${js}/dataTables.bootstrap.js"></script>
+		
 
 		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>

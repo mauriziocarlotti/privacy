@@ -30,12 +30,12 @@ public class Customer implements Serializable {
 	private String last_name;
 	@Column(name = "is_active")
 	private boolean active = true;
-	@JsonIgnore
+	// @ JsonIgnore
 	private String description;
 	private String email;
 	private String contact_number;
 	@Column(name = "category_id")
-	@JsonIgnore
+	// @ JsonIgnore
 	private int categoryId;
 	@Column(name = "supplier_id")
 	@JsonIgnore
