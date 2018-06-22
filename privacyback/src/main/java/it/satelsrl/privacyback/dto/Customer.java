@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 /**
  * @author Maurizio Carlotti
  *
@@ -28,12 +30,15 @@ public class Customer implements Serializable {
 	private String last_name;
 	@Column(name = "is_active")
 	private boolean active = true;
+	@JsonIgnore
 	private String description;
 	private String email;
 	private String contact_number;
 	@Column(name = "category_id")
+	@JsonIgnore
 	private int categoryId;
 	@Column(name = "supplier_id")
+	@JsonIgnore
 	private int supplierId;
 	
 	// default constructor

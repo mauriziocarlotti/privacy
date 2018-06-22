@@ -42,7 +42,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	 * LIST
 	 */
 	public List<Customer> list() {
-		return sessionFactory.getCurrentSession().createQuery("FROM customer", Customer.class).getResultList();
+		return sessionFactory.getCurrentSession().createQuery("FROM Customer", Customer.class).getResultList();
 	}
 	/*
 	 * INSERT
