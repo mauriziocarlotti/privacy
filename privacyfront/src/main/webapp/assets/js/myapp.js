@@ -11,6 +11,9 @@ $(function() {
 	case 'Tutti i clienti':
 		$('#listCustomers').addClass('active');
 		break;
+	case 'Gestione clienti':
+		$('#manageCustomers').addClass('active');
+		break;
 	default:
 		if(menu == "Home") break;
 		$('#listCustomers').addClass('active');

@@ -18,6 +18,7 @@
 				<li id="about"><a href="${contextRoot}/about">Chi siamo</a></li>
 				<li id="contact"><a href="${contextRoot}/contact">Contatti</a></li>
 				<li id="listCustomers"><a href="${contextRoot}/show/all/customers">Clienti</a></li>
+				<li id="manageCustomers"><a href="${contextRoot}/manage/customers">Gestione clienti</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

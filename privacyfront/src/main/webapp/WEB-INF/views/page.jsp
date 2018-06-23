@@ -77,6 +77,11 @@
 				<%@include file="singleCustomer.jsp"%>
 			</c:if>
 
+			<c:if
+				test="${userClickManageCustomers == true}">
+				<%@include file="manageCustomers.jsp"%>
+			</c:if>
+
 		</div>
 		<!-- /.container -->
 
