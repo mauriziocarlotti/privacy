@@ -24,7 +24,7 @@ import it.satelsrl.privacyfront.exception.CustomerNotFoundException;
 @Controller
 public class PageController {
 
-//	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
+	private static final Logger logger = LoggerFactory.getLogger(PageController.class);
 	
 	@Autowired
 	private CategoryDAO categoryDAO;
@@ -38,7 +38,8 @@ public class PageController {
 		mv.addObject("greeting", "Benvenuto to spring");
 		mv.addObject("title", "Home");
 		
-//		logger.info("PageController metodo index");
+		logger.info("PageController metodo index");
+		logger.debug("PageController metodo index in debug");
 		
 		// passing la lista delle categorie
 		mv.addObject("categories", categoryDAO.list());
@@ -110,7 +111,7 @@ public class PageController {
 	 */
 
 	@RequestMapping(value = "/show/category/{id}/customers")
-	public ModelAndView showCategoryCustomers(@PathVariable("id") int id) {
+	public ModelAndView showCategoryCustomers(@PathVariable("id") int id) throws CustomerNotFoundException {
 		ModelAndView mv = new ModelAndView("page");
 		// categoryDAO a trovare i clienti per categoria
 

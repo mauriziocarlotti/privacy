@@ -27,6 +27,7 @@
 	</properties>
 
 	<dependencies>
+		<!-- JUNIT VERSION 4.12 -->
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>

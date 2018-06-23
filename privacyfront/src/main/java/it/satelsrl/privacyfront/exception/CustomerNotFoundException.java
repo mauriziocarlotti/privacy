@@ -18,7 +18,7 @@ public class CustomerNotFoundException extends Exception implements Serializable
 	private String message;
 	
 	public CustomerNotFoundException() {
-		this("Product is not available!");
+		this("Customer is not available!");
 	}
 	
 	public CustomerNotFoundException(String message) {
