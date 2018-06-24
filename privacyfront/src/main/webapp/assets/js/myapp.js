@@ -25,12 +25,12 @@ $(function() {
 	// create a dataset
 	var $table = $('#customerListTable');
 
-var jsonUrl = '';
-if(window.categoryId == '') {
-	jsonUrl = window.contextRoot + '/json/data/all/customers';
-} else {
-	jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/customers';
-}
+	var jsonUrl = '';
+	if(window.categoryId == '') {
+		jsonUrl = window.contextRoot + '/json/data/all/customers';
+	} else {
+		jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId + '/customers';
+	}
 
 	// execute
 	if($table.length) {
@@ -81,5 +81,37 @@ if(window.categoryId == '') {
 		}, 3000)
 		
 	}
+
+	// ---------------------------------
+	
+	$('.switch input[type="checkbox"]').on('change',function() {
+		
+		var checkbox = $(this);
+		var checked = checkbox.prop('checked');
+		var dMsg = (checked)?'Vuoi attivare il cliente?':
+			                 'Vuoi disabilitare il cliente?';
+		var value = checkbox.prop('value');
+		
+		bootbox.confirm({
+			size: 'medium',
+			title: 'Attivazione & disabilitazione clienti',
+			message: dMsg,
+			callback: function(confirmed) {
+				if(confirmed) {
+					console.log(value);
+					bootbox.alert({
+						size: 'medium',
+						title: 'Informazioni',
+						message: 'Stai per effettuare un operazione sul cliente' + value
+					});
+				} else {
+					checkbox.prop('checked',!checked);
+				}
+			}
+		
+		});
+		
+	});		
 	
 });
+	

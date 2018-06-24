@@ -67,15 +67,14 @@
 								<sf:errors path="description" cssClass="help-block" element="em"></sf:errors>
 							</div>
 						</div>
-						
+
 						<!-- File element for image upload -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="file">Seleziona
 								una immagine: </label>
 							<div class="col-md-8">
-								<sf:input type="file" path="file" id="file"
-									class="form-control" />
-								<sf:errors path="file" cssClass="help-block" element="em"/>	
+								<sf:input type="file" path="file" id="file" class="form-control" />
+								<sf:errors path="file" cssClass="help-block" element="em" />
 							</div>
 						</div>
 
@@ -114,4 +113,95 @@
 
 	</div>
 
+	<div class="row">
+
+		<div class="col-xs-12">
+			<h3>Clienti disponibili</h3>
+		</div>
+
+
+		<div class="col-xs-12">
+			<div style="overflow: auto">
+				<!--  Customer table for Admin -->
+
+				<table id="adminCustomersTable"
+					class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Nome</th>
+							<th>Cognome</th>
+							<th>Mail</th>
+							<th>Attivo</th>
+							<th>Modifica</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>1</td>
+							<td><img class="adminDataTableImg" alt="Mario"
+								src="${contextRoot}/resources/image/CLI" /></td>
+							<td>Mario</td>
+							<td>Prova</td>
+							<td></td>
+							<td>
+							<label class="switch">
+							<input type="checkbox" checked="checked" />
+									<div class="slider"></div>
+							</label>
+							</td>
+							<td><a href="${contextRoot}/manage/1/customer"
+								class="btn btn-warning"> <span
+									class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+						</tr>
+
+						<tr>
+							<td>1</td>
+							<td><img class="adminDataTableImg" alt="Mario"
+								src="${contextRoot}/resources/image/CLI" /></td>
+							<td>Mario</td>
+							<td>Prova</td>
+							<td></td>
+							<td>
+							<label class="switch">
+							<input type="checkbox" checked="checked" />
+									<div class="slider"></div>
+							</label>
+							</td>
+							<td><a href="${contextRoot}/manage/1/customer"
+								class="btn btn-warning"> <span
+									class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+						</tr>
+
+					</tbody>
+
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Nome</th>
+							<th>Cognome</th>
+							<th>Mail</th>
+							<th>Attivo</th>
+							<th>Modifica</th>
+						</tr>
+					</tfoot>
+
+				</table>
+
+
+			</div>
+
+
+
+
+
+		</div>
+
+
+	</div>
 </div>

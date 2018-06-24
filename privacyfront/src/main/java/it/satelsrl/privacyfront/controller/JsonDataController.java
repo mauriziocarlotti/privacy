@@ -33,6 +33,14 @@ public class JsonDataController {
 		
 	}
 	
+	@RequestMapping("/admin/all/customers")
+	@ResponseBody
+	public List<Customer> getAllCustomersForAdmin() {
+		
+		return customerDAO.list();
+		
+	}
+	
 	@RequestMapping("/category/{id}/customers")
 	@ResponseBody
 	public List<Customer> getCustomersByCategory(@PathVariable int id) {
