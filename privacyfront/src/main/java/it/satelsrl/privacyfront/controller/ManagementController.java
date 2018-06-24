@@ -25,6 +25,7 @@ import it.satelsrl.privacyback.dao.CustomerDAO;
 import it.satelsrl.privacyback.dto.Category;
 import it.satelsrl.privacyback.dto.Customer;
 import it.satelsrl.privacyfront.util.FileUploadUtility;
+import it.satelsrl.privacyfront.validator.CustomerValidator;
 
 /**
  * @author Maurizio Carlotti
@@ -69,6 +70,9 @@ public class ManagementController {
 	@RequestMapping(value="/customers", method=RequestMethod.POST)
 	public String handleCustomerSubmission(@Valid @ModelAttribute("customer") Customer mCustomer, BindingResult results, Model model,
 			HttpServletRequest request) {
+		
+		new CustomerValidator().validate(mCustomer, results);
+		
 		
 		//check if there any errors
 		if(results.hasErrors()) {
