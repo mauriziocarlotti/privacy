@@ -4,6 +4,7 @@
 package it.satelsrl.privacyback.dto;
 
 import java.io.Serializable;
+import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -33,6 +34,7 @@ public class Customer implements Serializable {
 	// @ JsonIgnore
 	private String description;
 	private String email;
+	private String codice;
 	private String contact_number;
 	@Column(name = "category_id")
 	// @ JsonIgnore
@@ -42,9 +44,9 @@ public class Customer implements Serializable {
 	private int supplierId;
 	
 	// default constructor
-//	public Customer() {
-//		this.last_name;
-//	}
+	public Customer() {
+		this.codice = "CLI"+ UUID.randomUUID().toString().substring(26).toUpperCase();
+	}
 	/**
 	 * @return the id
 	 */
@@ -118,6 +120,18 @@ public class Customer implements Serializable {
 		this.email = email;
 	}
 	/**
+	 * @return the codice
+	 */
+	public String getCodice() {
+		return codice;
+	}
+	/**
+	 * @param codice the codice to set
+	 */
+	public void setCodice(String codice) {
+		this.codice = codice;
+	}
+	/**
 	 * @return the contact_number
 	 */
 	public String getContact_number() {
@@ -152,6 +166,15 @@ public class Customer implements Serializable {
 	 */
 	public void setSupplierId(int supplierId) {
 		this.supplierId = supplierId;
+	}
+	/* (non-Javadoc)
+	 * toString for debugging
+	 */
+	@Override
+	public String toString() {
+		return "Customer [id=" + id + ", first_name=" + first_name + ", last_name=" + last_name + ", active=" + active
+				+ ", description=" + description + ", email=" + email + ", codice=" + codice + ", contact_number="
+				+ contact_number + ", categoryId=" + categoryId + ", supplierId=" + supplierId + "]";
 	}
 
 }
