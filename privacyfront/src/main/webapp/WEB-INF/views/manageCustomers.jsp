@@ -138,47 +138,6 @@
 						</tr>
 					</thead>
 
-					<tbody>
-						<tr>
-							<td>1</td>
-							<td><img class="adminDataTableImg" alt="Mario"
-								src="${contextRoot}/resources/image/CLI" /></td>
-							<td>Mario</td>
-							<td>Prova</td>
-							<td></td>
-							<td>
-							<label class="switch">
-							<input type="checkbox" checked="checked" />
-									<div class="slider"></div>
-							</label>
-							</td>
-							<td><a href="${contextRoot}/manage/1/customer"
-								class="btn btn-warning"> <span
-									class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-						</tr>
-
-						<tr>
-							<td>1</td>
-							<td><img class="adminDataTableImg" alt="Mario"
-								src="${contextRoot}/resources/image/CLI" /></td>
-							<td>Mario</td>
-							<td>Prova</td>
-							<td></td>
-							<td>
-							<label class="switch">
-							<input type="checkbox" checked="checked" />
-									<div class="slider"></div>
-							</label>
-							</td>
-							<td><a href="${contextRoot}/manage/1/customer"
-								class="btn btn-warning"> <span
-									class="glyphicon glyphicon-pencil"></span>
-							</a></td>
-						</tr>
-
-					</tbody>
-
 					<tfoot>
 						<tr>
 							<th>Id</th>

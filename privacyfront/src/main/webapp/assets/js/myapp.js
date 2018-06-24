@@ -113,5 +113,72 @@ $(function() {
 		
 	});		
 	
+	// ---------------------------------------
+	// data table for admin
+	// ---------------------------------------
+	
+	var $adminCustomersTable = $('#adminCustomersTable');
+
+	var jsonUrl = window.contextRoot + '/json/data/admin/all/customers';
+
+	
+	$adminCustomersTable.DataTable( {
+			
+			lengthMenu: [[10,30,50,-1],['10 Records','30 Records','50 Records', 'All records']],
+			pageLength: 30,
+			ajax: {
+				url: jsonUrl,
+				dataSrc: ''
+			},
+			columns: [
+				{
+					data: 'id'
+				},
+				{
+					data: 'first_name'
+				},
+				{
+					data: 'last_name'
+				},
+				{
+					data: 'email',
+					mRender: function(data, type, row) {
+						return '&#8377; ' + data
+					}
+				},
+				{
+					data: 'active',
+					mRender: function(data, type, row) {
+						var str = '';
+						str += '<label class="switch">';
+						if(data) {
+						str += '<input type="checkbox" checked="checked"  value="'+row.id+'" />';
+						
+						} else {
+							str += '<input type="checkbox" value="'+row.id+'" />';
+						}
+						str += '<div class="slider"></div></label>';
+						return str;
+					}
+				},
+				
+				{
+					data: 'id',
+					bSortable: false,
+					mRender: function(data, type, row) {
+						var str = '';
+						str +='<a href="${contextRoot}/manage/'+data+'/customer';
+						str += '<span class="glyphicon glyphicon-pencil"></span></a>';
+						return str;
+					}
+				},
+			]
+			
+		});
+	
+	
 });
+	
+	
+
 	
