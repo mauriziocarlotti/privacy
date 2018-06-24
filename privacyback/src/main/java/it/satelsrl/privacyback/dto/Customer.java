@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -27,12 +28,15 @@ public class Customer implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
+	@NotBlank(message="Attenzione inserire il Nome")
 	private String first_name;
+	@NotBlank(message="Attenzione inserire il Cognome")
 	private String last_name;
 	@Column(name = "is_active")
 	private boolean active = true;
 	// @ JsonIgnore
 	private String description;
+	@NotBlank(message="Attenzione inserire la mail")
 	private String email;
 	private String codice;
 	private String contact_number;

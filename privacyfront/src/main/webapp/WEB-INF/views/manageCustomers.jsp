@@ -34,7 +34,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="first_name" id="first_name"
 									placeholder="Nome cliente" class="form-control" />
-								<em class="help-block">Inserire il nome del cliente</em>
+								<sf:errors path="first_name" cssClass="help-blok" element="em"></sf:errors>	
 							</div>
 						</div>
 
@@ -44,7 +44,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="last_name" id="last_name"
 									placeholder="Cognome cliente" class="form-control" />
-								<em class="help-block">Inserire il cognome del cliente</em>
+								<sf:errors path="last_name" cssClass="help-blok" element="em"></sf:errors>	
 							</div>
 						</div>
 
@@ -53,7 +53,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="email" id="email"
 									placeholder="Cognome cliente" class="form-control" />
-								<em class="help-block">Inserire la mail</em>
+								<sf:errors path="email" cssClass="help-blok" element="em"></sf:errors>	
 							</div>
 						</div>
 
@@ -63,7 +63,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Breve descrizione" class="form-control" />
-								<em class="help-block">Inserire una breve descrizione</em>
+								<sf:errors path="description" cssClass="help-blok" element="em"></sf:errors>	
 							</div>
 						</div>
 

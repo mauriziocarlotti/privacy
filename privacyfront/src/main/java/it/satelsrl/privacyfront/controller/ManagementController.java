@@ -5,10 +5,14 @@ package it.satelsrl.privacyfront.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -61,7 +65,16 @@ public class ManagementController {
 	
 	//handling customer submission
 	@RequestMapping(value="/customers", method=RequestMethod.POST)
-	public String handleCustomerSubmission(@ModelAttribute("customer") Customer mCustomer) {
+	public String handleCustomerSubmission(@Valid @ModelAttribute("customer") Customer mCustomer, BindingResult results, Model model) {
+		
+		//check if there any errors
+		if(results.hasErrors()) {
+			model.addAttribute("userClickManageCustomers", true);
+			model.addAttribute("title", "Gestione clienti");
+			model.addAttribute("message","Errore nella validazione dei dati!");
+			
+			return "page";	
+		}
 		logger.info(mCustomer.toString());
 		// create a new customer
 		customerDAO.add(mCustomer);
