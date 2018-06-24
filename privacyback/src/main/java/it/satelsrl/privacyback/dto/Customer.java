@@ -12,7 +12,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -46,6 +49,23 @@ public class Customer implements Serializable {
 	@Column(name = "supplier_id")
 	@JsonIgnore
 	private int supplierId;
+	
+	@Transient
+	private MultipartFile file;
+	
+	/**
+	 * @return the file
+	 */
+	public MultipartFile getFile() {
+		return file;
+	}
+	/**
+	 * @param file the file to set
+	 */
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	
 	
 	// default constructor
 	public Customer() {

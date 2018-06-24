@@ -26,7 +26,8 @@
 
 					<!--  FORM ELEMENTS -->
 					<sf:form class="form-horizontal" modelAttribute="customer"
-						action="${contextRoot}/manage/customers" method="POST">
+						action="${contextRoot}/manage/customers" method="POST"
+						enctype="multipart/form-data">
 
 						<div class="form-group">
 							<label class="control-label col-md-4" for="first_name">Nome:
@@ -34,7 +35,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="first_name" id="first_name"
 									placeholder="Nome cliente" class="form-control" />
-								<sf:errors path="first_name" cssClass="help-blok" element="em"></sf:errors>	
+								<sf:errors path="first_name" cssClass="help-blok" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -44,7 +45,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="last_name" id="last_name"
 									placeholder="Cognome cliente" class="form-control" />
-								<sf:errors path="last_name" cssClass="help-blok" element="em"></sf:errors>	
+								<sf:errors path="last_name" cssClass="help-blok" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -53,7 +54,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="email" id="email"
 									placeholder="Cognome cliente" class="form-control" />
-								<sf:errors path="email" cssClass="help-blok" element="em"></sf:errors>	
+								<sf:errors path="email" cssClass="help-blok" element="em"></sf:errors>
 							</div>
 						</div>
 
@@ -63,7 +64,17 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Breve descrizione" class="form-control" />
-								<sf:errors path="description" cssClass="help-blok" element="em"></sf:errors>	
+								<sf:errors path="description" cssClass="help-blok" element="em"></sf:errors>
+							</div>
+						</div>
+						
+						<!-- File element for image upload -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Seleziona
+								una immagine: </label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file"
+									class="form-control" />
 							</div>
 						</div>
 

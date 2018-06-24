@@ -1,4 +1,4 @@
-CREATE TABLE category (
+﻿CREATE TABLE category (
 
 	id INT NOT NULL AUTO_INCREMENT,
 	name VARCHAR(100),
@@ -38,6 +38,7 @@ CREATE TABLE customer (
 	is_active BOOLEAN,
 	description VARCHAR(255),
 	email VARCHAR(255),
+	codice VARCHAR(255),
 	contact_number VARCHAR(255),
 	category_id INT,
 	supplier_id INT,

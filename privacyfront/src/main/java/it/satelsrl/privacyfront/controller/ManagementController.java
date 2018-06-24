@@ -5,6 +5,7 @@ package it.satelsrl.privacyfront.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -23,6 +24,7 @@ import it.satelsrl.privacyback.dao.CategoryDAO;
 import it.satelsrl.privacyback.dao.CustomerDAO;
 import it.satelsrl.privacyback.dto.Category;
 import it.satelsrl.privacyback.dto.Customer;
+import it.satelsrl.privacyfront.util.FileUploadUtility;
 
 /**
  * @author Maurizio Carlotti
@@ -65,7 +67,8 @@ public class ManagementController {
 	
 	//handling customer submission
 	@RequestMapping(value="/customers", method=RequestMethod.POST)
-	public String handleCustomerSubmission(@Valid @ModelAttribute("customer") Customer mCustomer, BindingResult results, Model model) {
+	public String handleCustomerSubmission(@Valid @ModelAttribute("customer") Customer mCustomer, BindingResult results, Model model,
+			HttpServletRequest request) {
 		
 		//check if there any errors
 		if(results.hasErrors()) {
@@ -78,6 +81,11 @@ public class ManagementController {
 		logger.info(mCustomer.toString());
 		// create a new customer
 		customerDAO.add(mCustomer);
+		
+		if(!mCustomer.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request, mCustomer.getFile(), mCustomer.getCodice());
+		}
+		
 		return "redirect:/manage/customers?operation=customer";
 	}
 	
