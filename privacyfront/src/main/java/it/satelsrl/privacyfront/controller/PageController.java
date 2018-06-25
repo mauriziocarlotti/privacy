@@ -141,6 +141,7 @@ public class PageController {
 
 		Customer customer = customerDAO.get(id);
 
+		logger.info("PageController metodo /show/{id}/customer");
 		if (customer == null)
 			throw new CustomerNotFoundException();
 

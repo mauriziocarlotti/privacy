@@ -31,6 +31,7 @@
 
 <!-- Custom CSS -->
 <link href="${css}/shop-homepage.css" rel="stylesheet">
+<link href="${css}/myapp.css" rel="stylesheet">
 
 <!-- Custom CSS -->
 <link href="${css}/dataTables.bootstrap.css" rel="stylesheet">

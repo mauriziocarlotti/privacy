@@ -129,7 +129,7 @@
 					<thead>
 						<tr>
 							<th>Id</th>
-							<th>&#160;</th>
+<!--  							< th >&#160;< / th > -->
 							<th>Nome</th>
 							<th>Cognome</th>
 							<th>Mail</th>
@@ -141,7 +141,7 @@
 					<tfoot>
 						<tr>
 							<th>Id</th>
-							<th>&#160;</th>
+<!--							< th >&#160;< / th > -->
 							<th>Nome</th>
 							<th>Cognome</th>
 							<th>Mail</th>
