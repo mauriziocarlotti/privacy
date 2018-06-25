@@ -188,7 +188,7 @@ $(function() {
 								bSortable : false,
 								mRender : function(data, type, row) {
 									var str = '';
-									str += '<a href="${contextRoot}/manage/'
+									str += '<a href="'+window.contextRoot+'/manage/'
 											+ data
 											+ '/customer" class="btn btn-warning">';
 									str += '<span class="glyphicon glyphicon-pencil"></span></a>';
@@ -217,13 +217,17 @@ $(function() {
 													callback : function(confirmed) {
 														if (confirmed) {
 															console.log(value);
+															
+															var activationUrl = window.contextRoot + '/manage/customer/' + value + '/activation';
+															$.post(activationUrl, function(data) {
+																													
 															bootbox
 																	.alert({
 																		size : 'medium',
 																		title : 'Informazioni',
-																		message : 'Stai per effettuare un operazione sul cliente'
-																				+ value
+																		message : data
 																	});
+															});
 														} else {
 															checkbox.prop('checked', !checked);
 														}
