@@ -92,6 +92,10 @@
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
 
+		<!-- jQuery Validate -->
+		<script src="${js}/jquery.validate.js"></script>
+		<script src="${js}/jquery.validate.min.js"></script>
+
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
 
@@ -104,7 +108,6 @@
 		<!-- Bootbox plugins -->
 		<script src="${js}/bootbox.min.js"></script>
 		
-
 		<!-- Self coded javascript -->
 		<script src="${js}/myapp.js"></script>
 
