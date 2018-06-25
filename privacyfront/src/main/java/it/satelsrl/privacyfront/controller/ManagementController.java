@@ -62,6 +62,10 @@ public class ManagementController {
 		if (operation != null) {
 			if (operation.equals("customer")) {
 				mv.addObject("message", "Cliente inserito con successo");
+			} else {
+				if(operation.equals("category")) {
+					mv.addObject("message", "Categoria inserita con successo");
+				}
 			}
 		}
 		return mv;
@@ -128,6 +132,14 @@ public class ManagementController {
 		return (isActive) ? "Ho disattivato il cliente " + customer.getLast_name() + " con successo"
 				: "Ho attivato il cliente " + customer.getLast_name() + " con successo";
 	}
+	
+	// to handle category submission
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		categoryDAO .add(category);
+		return "redirect:/manage/customers?operation=category";
+	}
+	
 
 	// returning categories for all the request mapping
 	@ModelAttribute("categories")
@@ -135,4 +147,10 @@ public class ManagementController {
 		return categoryDAO.list();
 	}
 
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
+	}
+	
+	
 }
