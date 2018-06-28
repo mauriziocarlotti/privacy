@@ -3,6 +3,7 @@
 	<name>privacyfront</name>
 	<comment></comment>
 	<projects>
+		<project>privacyback</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

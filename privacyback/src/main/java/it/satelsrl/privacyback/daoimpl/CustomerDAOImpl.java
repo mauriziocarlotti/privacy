@@ -11,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import it.satelsrl.privacyback.dao.CustomerDAO;
+import it.satelsrl.privacyback.dto.Address;
 import it.satelsrl.privacyback.dto.Customer;
 
 /**
@@ -112,4 +113,68 @@ public class CustomerDAOImpl implements CustomerDAO {
 				.setMaxResults(count)
 				.getResultList();
 	}
+	@Override
+	public Customer getByEmail(String email) {
+		String selectQuery ="FROM Customer WHERE email = :email";
+		try {
+			return sessionFactory.getCurrentSession().createQuery(selectQuery, Customer.class).setParameter("email", email).getSingleResult();
+		} catch(Exception ex) {
+			ex.printStackTrace();
+			return null;
+		}
+		
+	}
+	@Override
+	public boolean addAddress(Address address) {
+		try {			
+			// will look for this code later and why we need to change it
+			sessionFactory.getCurrentSession().persist(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}
+	
+	@Override
+	public boolean updateAddress(Address address) {
+		try {			
+			sessionFactory.getCurrentSession().update(address);			
+			return true;
+		}
+		catch(Exception ex) {
+			return false;
+		}
+	}	
+	
+
+	@Override
+	public List<Address> listShippingAddresses(Customer customer) {
+		
+		String selectQuery = "FROM Address where customer = :customer";
+		try {
+			return sessionFactory
+					.getCurrentSession()
+						.createQuery(selectQuery,Address.class)
+							.setParameter("customer", customer)
+								.getResultList();
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+		
+	}
+
+	@Override
+	public Address getAddress(int addressId) {
+		try {			
+			return sessionFactory.getCurrentSession().get(Address.class, addressId);			
+		}
+		catch(Exception ex) {
+			System.out.println(ex.getMessage());
+			return null;
+		}
+	}
+
 }
