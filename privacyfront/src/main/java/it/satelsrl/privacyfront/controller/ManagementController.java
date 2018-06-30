@@ -110,9 +110,9 @@ public class ManagementController {
 		logger.info(mCustomer.toString());
 		// create a new customer
 		if (mCustomer.getId() == 0) {
-			customerDAO.add(mCustomer);
+			customerDAO.addCustomer(mCustomer);
 		} else {
-			customerDAO.update(mCustomer);
+			customerDAO.updateCustomer(mCustomer);
 		}
 		if (!mCustomer.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request, mCustomer.getFile(), mCustomer.getCodice());
@@ -128,7 +128,7 @@ public class ManagementController {
 		Customer customer = customerDAO.get(id);
 		boolean isActive = customer.isActive();
 		customer.setActive(!customer.isActive());
-		customerDAO.update(customer);
+		customerDAO.updateCustomer(customer);
 		return (isActive) ? "Ho disattivato il cliente " + customer.getLast_name() + " con successo"
 				: "Ho attivato il cliente " + customer.getLast_name() + " con successo";
 	}
@@ -136,7 +136,7 @@ public class ManagementController {
 	// to handle category submission
 	@RequestMapping(value="/category", method=RequestMethod.POST)
 	public String handleCategorySubmission(@ModelAttribute Category category) {
-		categoryDAO .add(category);
+		categoryDAO .addCategory(category);
 		return "redirect:/manage/customers?operation=category";
 	}
 	

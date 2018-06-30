@@ -14,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
 /**
  * @author Maurizio Carlotti
  *
@@ -124,19 +126,11 @@ public class Address implements Serializable {
 				+ ", billing=" + billing + "]";
 	}
 		
-	@Column(name = "user_id")
-	private int userId;
 	public boolean isShipping() {
 		return shipping;
 	}
 	public void setShipping(boolean shipping) {
 		this.shipping = shipping;
-	}
-	public int getUserId() {
-		return userId;
-	}
-	public void setUserId(int userId) {
-		this.userId = userId;
 	}
 	
 	

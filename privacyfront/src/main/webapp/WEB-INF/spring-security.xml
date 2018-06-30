@@ -23,11 +23,19 @@
 	<authentication-manager>
 		<authentication-provider>
 			<!-- il dataSource deve essere quello del @bean("dataSource") in HibernateConfig.java -->
-
+<!-- 
 			<jdbc-user-service data-source-ref="dataSource"
 				users-by-usename-query="select email, password, enabled from user_detail where email = ?"
 				authorities-by-username-query="select email, role from user_detail where email = ?" 
 			/>
+			 -->
+	<user-service>
+	<!-- Password is prefixed with {noop} to indicate to DelegatingPasswordEncoder that
+	NoOpPasswordEncoder should be used. This is not safe for production, but makes reading
+	in samples easier. Normally passwords should be hashed using BCrypt -->
+	<user name="maurizio" password="{noop}Mizio2000" authorities="ROLE_USER, ROLE_ADMIN" />
+	<user name="roberto" password="{noop}bobspassword" authorities="ROLE_USER" />
+	</user-service>
 		</authentication-provider>
 	</authentication-manager>
 

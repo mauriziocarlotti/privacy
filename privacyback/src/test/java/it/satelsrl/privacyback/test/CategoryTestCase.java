@@ -80,25 +80,25 @@ public class CategoryTestCase {
 		category.setDescription("Questa è la categoria pubblica");
 		category.setImageURL("CAT_20.png");
 		
-		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.addCategory(category));
 		
 		category = new Category();
 		category.setName("Lite");
 		category.setDescription("Questa è la categoria lite");
 		category.setImageURL("CAT_30.png");
 		
-		assertEquals("Successfully added a category inside the table!",true,categoryDAO.add(category));
+		assertEquals("Successfully added a category inside the table!",true,categoryDAO.addCategory(category));
 		
 		// fetching and updating the category
 		
 		category = categoryDAO.get(2);
 		
 		category.setName("Privacy per pubblicità");
-		assertEquals("Successfully update a single category from table category!",true,categoryDAO.update(category));
+		assertEquals("Successfully update a single category from table category!",true,categoryDAO.updateCategory(category));
 		
 		// delete category
 		
-		assertEquals("Successfully delete a single category from table category!",true,categoryDAO.delete(category));
+		assertEquals("Successfully delete a single category from table category!",true,categoryDAO.deleteCategory(category));
 		
 		// fetching the list
 		assertEquals("Successfully fetched the list categories from table category!",1,categoryDAO.list().size());

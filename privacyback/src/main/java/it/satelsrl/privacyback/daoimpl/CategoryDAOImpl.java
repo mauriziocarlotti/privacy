@@ -54,7 +54,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * (non-Javadoc) Add category
 	 */
 	@Override
-	public boolean add(Category category) {
+	public boolean addCategory(Category category) {
 		try {
 			// add la categoria al database
 			sessionFactory.getCurrentSession().persist(category);
@@ -69,7 +69,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * (non-Javadoc) Updating single category
 	 */
 	@Override
-	public boolean update(Category category) {
+	public boolean updateCategory(Category category) {
 		try {
 			// update la categoria al database
 			sessionFactory.getCurrentSession().update(category);
@@ -84,7 +84,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	 * (non-Javadoc) Delete single category
 	 */
 	@Override
-	public boolean delete(Category category) {
+	public boolean deleteCategory(Category category) {
 		category.setActive(false);
 		try {
 			// delete la categoria dal database

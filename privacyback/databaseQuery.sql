@@ -51,4 +51,17 @@ CONSTRAINT fk_customer_supplier_id FOREIGN KEY (supplier_id) REFERENCES user_det
 INSERT INTO customer (first_name, last_name, is_active, description, email, contact_number, category_id, supplier_id) VALUES ('Mario', 'Rossi', true, '', 'mario.rossi@libero.it', '0000',1,1);
 INSERT INTO customer (first_name, last_name, is_active, description, email, contact_number, category_id, supplier_id) VALUES ('Giuseppe', 'Verdi', true, '', 'giuseppe.verdi@libero.it', '0000',2,1);
 
+CREATE TABLE address (
+	id INT NOT NULL AUTO_INCREMENT,
+	customer_id int,
+	address_line_one VARCHAR(255),
+	address_line_two VARCHAR(255),
+	city VARCHAR(255),
+	country VARCHAR(255),
+	postal_code VARCHAR(255),
+	is_shipping BOOLEAN,
+	is_billing BOOLEAN,
+	
+CONSTRAINT pk_address_id PRIMARY KEY (id)
+);
 	

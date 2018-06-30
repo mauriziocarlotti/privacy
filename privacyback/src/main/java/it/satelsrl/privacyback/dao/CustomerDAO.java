@@ -15,9 +15,9 @@ import it.satelsrl.privacyback.dto.Customer;
 public interface CustomerDAO {
 	Customer get(int customerID);
 	List<Customer> list();
-	boolean add(Customer customer);
-	boolean update(Customer customer);
-	boolean delete(Customer customer);
+	boolean addCustomer(Customer customer);
+	boolean updateCustomer(Customer customer);
+	boolean deleteCustomer(Customer customer);
 	Customer getByEmail(String email);
 
 	// business methods

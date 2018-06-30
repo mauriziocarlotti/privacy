@@ -15,8 +15,8 @@ public interface CategoryDAO {
 
 	Category get(int id);
 	List<Category> list();
-	boolean add(Category category);
-	boolean update(Category category);
-	boolean delete(Category category);
+	boolean addCategory(Category category);
+	boolean updateCategory(Category category);
+	boolean deleteCategory(Category category);
 
 }

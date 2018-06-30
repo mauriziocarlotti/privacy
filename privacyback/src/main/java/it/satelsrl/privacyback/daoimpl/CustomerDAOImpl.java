@@ -48,7 +48,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * INSERT
 	 */
-	public boolean add(Customer customer) {
+	public boolean addCustomer(Customer customer) {
 		try {
 			// aggiungi il customer al database
 			sessionFactory.getCurrentSession().persist(customer);
@@ -62,7 +62,7 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * UPDATE
 	 */
-	public boolean update(Customer customer) {
+	public boolean updateCustomer(Customer customer) {
 		try {
 			// aggiungi il customer al database
 			sessionFactory.getCurrentSession().update(customer);
@@ -75,11 +75,11 @@ public class CustomerDAOImpl implements CustomerDAO {
 	/*
 	 * DELETE
 	 */
-	public boolean delete(Customer customer) {
+	public boolean deleteCustomer(Customer customer) {
 		try {
 			// aggiungi il customer al database
 			customer.setActive(false);
-			return this.update(customer);
+			return this.updateCustomer(customer);
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
