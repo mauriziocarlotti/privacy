@@ -134,10 +134,15 @@ public class ManagementController {
 	}
 	
 	// to handle category submission
-	@RequestMapping(value="/category", method=RequestMethod.POST)
-	public String handleCategorySubmission(@ModelAttribute Category category) {
-		categoryDAO .addCategory(category);
-		return "redirect:/manage/customers?operation=category";
+//	@RequestMapping(value="/category", method=RequestMethod.POST)
+//	public String handleCategorySubmission(@ModelAttribute Category category) {
+//		categoryDAO .addCategory(category);
+//		return "redirect:/manage/customers?operation=category";
+//	}
+	@RequestMapping(value = "/category", method=RequestMethod.POST)
+	public String managePostCategory(@ModelAttribute("category") Category mCategory, HttpServletRequest request) {					
+		categoryDAO.addCategory(mCategory);		
+		return "redirect:" + request.getHeader("Referer") + "?success=category";
 	}
 	
 

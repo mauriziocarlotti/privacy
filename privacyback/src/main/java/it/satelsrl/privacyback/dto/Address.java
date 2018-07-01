@@ -33,21 +33,21 @@ public class Address implements Serializable {
 	private int id;
 	
 	// ---------------------------------
-	@ManyToOne
-	private Customer customer;
-	
-	/**
-	 * @return the customer
-	 */
-	public Customer getCustomer() {
-		return customer;
-	}
-	/**
-	 * @param customer the customer to set
-	 */
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}
+//	@ManyToOne
+//	private Customer customer;
+//	
+//	/**
+//	 * @return the customer
+//	 */
+//	public Customer getCustomer() {
+//		return customer;
+//	}
+//	/**
+//	 * @param customer the customer to set
+//	 */
+//	public void setCustomer(Customer customer) {
+//		this.customer = customer;
+//	}
 
 	// ---------------------------------
 	@Column(name="customer_id")
@@ -131,6 +131,18 @@ public class Address implements Serializable {
 	}
 	public void setShipping(boolean shipping) {
 		this.shipping = shipping;
+	}
+	/**
+	 * @return the custId
+	 */
+	public int getCustId() {
+		return custId;
+	}
+	/**
+	 * @param custId the custId to set
+	 */
+	public void setCustId(int custId) {
+		this.custId = custId;
 	}
 	
 	

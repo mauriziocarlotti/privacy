@@ -15,7 +15,7 @@
    ">
 
 	<context:component-scan
-		base-package="it.satelsrl.privacyfront." />
+		base-package="it.satelsrl.privacyfront" />
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -47,7 +47,8 @@
 	</wf:flow-registry>
 
 	<wf:flow-builder-services
-		id="flowBuilderServices" view-factory-creator="viewFactoryCreator" />
+		id="flowBuilderServices" view-factory-creator="viewFactoryCreator"
+		validator="validator" />
 
 	<bean
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerAdapter">
@@ -57,12 +58,16 @@
 	<bean
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry"></property>
+		<property name="order" value="-1" />
 	</bean>
 
 	<bean id="viewFactoryCreator"
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
 
-		<property name="viewResolvers" ref="viewResolver"/>
+		<property name="viewResolvers" ref="viewResolver" />
 	</bean>
+
+	<bean id="validator"
+		class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean" />
 
 </beans>

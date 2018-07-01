@@ -163,7 +163,6 @@ public class CustomerDAOImpl implements CustomerDAO {
 			System.out.println(ex.getMessage());
 			return null;
 		}
-		
 	}
 
 	@Override

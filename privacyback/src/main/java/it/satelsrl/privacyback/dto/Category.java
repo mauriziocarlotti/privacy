@@ -21,14 +21,10 @@ import javax.persistence.Table;
 public class Category implements Serializable {
 	
 	
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
+	/*
+	 * private fields
 	 */
-	@Override
-	public String toString() {
-		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
-				+ ", active=" + active + "]";
-	}
+	private static final long serialVersionUID = 1L;
 	// private fields
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +39,15 @@ public class Category implements Serializable {
 	
 	@Column(name = "is_active")
 	private boolean active = true;
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "Category [id=" + id + ", name=" + name + ", description=" + description + ", imageURL=" + imageURL
+				+ ", active=" + active + "]";
+	}
 	/**
 	 * @return the id
 	 */

@@ -9,6 +9,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import it.satelsrl.privacyback.dao.CategoryDAO;
 import it.satelsrl.privacyback.dao.CustomerDAO;
 import it.satelsrl.privacyback.dto.Address;
 import it.satelsrl.privacyback.dto.Customer;
@@ -24,7 +25,7 @@ public class CustomerTestCase {
 	private static CustomerDAO customerDAO;
 
 	private Customer customer=null;
-	private Address address = null;
+//	private Address address = null;
 	
 
 	@BeforeClass
@@ -32,7 +33,8 @@ public class CustomerTestCase {
 		context = new AnnotationConfigApplicationContext();
 		context.scan("it.satelsrl.privacyback");
 		context.refresh();
-		customerDAO = (CustomerDAO) context.getBean("customerDAO");
+		customerDAO = (CustomerDAO)context.getBean("customerDAO");
+		
 	}
 
 	@Test
@@ -72,18 +74,19 @@ public class CustomerTestCase {
 		assertEquals("Qualcosa è andato male quando ho inserito un nuovo customer", true, customerDAO.addCustomer(customer));
 		
 
-		address = new Address();
-		address.setAddressLineOne("Via del Tritone, 2");
-		address.setAddressLineTwo("00100 Roma  (RM)");
-		address.setCity("Roma");
-		address.setState("Italia");
-		address.setCountry("Italia");
-		address.setPostalCode("00100");
-		address.setBilling(true);
-		address.setCustomer(customer);
+//		address = new Address();
+//		address.setAddressLineOne("Via del Tritone, 2");
+//		address.setAddressLineTwo("00100 Roma  (RM)");
+//		address.setCity("Roma");
+//		address.setState("Italia");
+//		address.setCountry("Italia");
+//		address.setPostalCode("00100");
+//		address.setBilling(true);
+//		address.setCustId(customer.getId());
+//		address.setCustomer(customer);
 		
 		
-		assertEquals("Fallito ad aggiungere l indirizzo",true,customerDAO.addAddress(address));
+//		assertEquals("Fallito ad aggiungere l indirizzo",true,customerDAO.addAddress(address));
 		
 		
 	}
