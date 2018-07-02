@@ -19,7 +19,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="Maurizio Carlotti">
+<meta name="_csrf" content="${_csrf.token}">
 <meta name="_csrf_header" content="${_csrf.headerName}">
+
 
 <title>PrivacyTrack - ${title}</title>
 
